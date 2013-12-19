@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="../Public/css/style-2.css" rel="stylesheet" type="text/css" />
+<!--[if IE 7]><link rel="stylesheet" media="all" type="text/css" href="css/ie7.css" />
+<![endif]-->
+<!--[if IE 8]><link rel="stylesheet" media="all" type="text/css" href="css/ie8.css" />
+<![endif]-->
+<!--slidercss-->
+<link rel="stylesheet" href="../Public/css/basic-jquery-slider.css" />
+<script src="../Public/js/jquery-1.6.2.min.js" type="text/javascript" language="javascript"></script>
+<script src="../Public/js/basic-jquery-slider.js"  type="text/javascript" language="javascript"></script>
+
+<!--  Attach the plug-in to the slider parent element and adjust the settings as required -->
+<script  type="text/javascript" language="javascript">
+      $(document).ready(function() {
+        
+        $('#banner').bjqs({
+          'animation' : 'slide',
+          'width' : 960,
+          'height' : 450
+        });
+        
+      });
+    </script>
+<style type="text/css">
+ul.bjqs h1, ol.bjqs-markers li a {
+	behavior: url("js/PIE.htc") !important;
+}
+</style>
+</head>
+
+<body>
+<!--Header Start Here-->
+<div id="header" style="position:absolute; width:100%; left: 10px; top: 0px;">
+  <!--Top Header End Here-->
+  <div id="logo_nav" >
+    <div class="bg1">
+      <div class="center_frame"> 
+        <div id="banner"> 
+          <!-- start Basic Jquery Slider -->
+          <ul class="bjqs">
+            <li>
+              <h1 style="font-size:48px; height:80px; top:0px">欢迎 使用</h1>
+              <p>我们诚挚地感谢您使用这个应用，欢迎提出宝贵的意见！</p>
+            </li>
+            <li>
+              <h1 style="font-size:48px; height:80px; top:0px">跟着电影去旅游</h1>
+              <p>点击你喜欢的电影，将出现该电影中出现过的真实景点，你可以把这个景点加入到你的旅游计划中。如果你创建了一部电影的信息，我们将非常感谢您！</p>
+            </li>
+            <li>
+              <h1 style="font-size:48px; height:80px; top:0px">鸣 谢</h1>
+              <p>Bootstrap提供了非常美观的css样式，Thinkphp提供了一个非常方便简洁的框架。  By二三组 @Glacier丶WB</p>
+            </li>
+          </ul>
+          <!-- end Basic jQuery Slider --> 
+        </div>
+        <!-- End outer wrapper --> 
+        
+        <!--slider end here--> 
+        
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn">
+<head>
+<meta charset="utf-8">
+		<link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.2/css/bootstrap.css">
+
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.2/css/bootstrap-theme.css">
+		
+        <script src="http://files.cnblogs.com/rubylouvre/jquery1.83.js" > </script>
+        <script src="http://files.cnblogs.com/rubylouvre/bootstrap-transition.js"></script>
+        <script src="http://files.cnblogs.com/rubylouvre/bootstrap-modal.js"></script>
+        <script src="http://files.cnblogs.com/rubylouvre/bootstrap-button.js"></script>
+
+		<script>
+			function perSubmit() {
+				var d;
+				$.post('{:U('Map/delsche')}', d, function (result) 
+				{
+					if(result.status==1)
+					{
+						alert("删除成功！！");
+						document.getElementById('index').click();
+						//window.location.href='{:U('Index')}';
+					}
+					else
+					{
+						alert("删除失败！！");
+						document.getElementById('index').click();
+						//window.location.href='{:U('Index')}';
+					}
+				}, 'json');
+			};
+			
+			function per2Submit() {
+				var d=$("form").serialize();
+				$.post('{:U('Map/send')}', d, function (result) 
+				{
+					if(result.status==1)
+					{
+						alert("发送成功！！");
+						//document.getElementById('index').click();
+						//window.location.href='{:U('Index')}';
+					}
+					else
+					{
+						alert("发送失败！！");
+						//document.getElementById('index').click();
+						//window.location.href='{:U('Index')}';
+					}
+				}, 'json');
+			};
+		</script>
+</head>
+
+<body>
+<a id="index" target="top" href="{:U('Map/index')}"></a>
+<div class="page-header" style="width:100%;">
+  <h1>&nbsp;&nbsp;<span class="glyphicon glyphicon-camera"></span> 我的旅游计划 <small> 欢迎： {$nm}</small></h1>
+	  &nbsp;&nbsp;<button type="button" class="btn btn-danger" onclick="perSubmit();">
+	  <span class="glyphicon glyphicon-trash"></span> 删除旅游计划！
+	  </button>
+</div>
+<form>
+<div class="col-lg-6">
+	<span class="label label-info">发送微博</span>
+    <div class="input-group">
+      <input type="text" class="form-control" name='weibo' value="我要去旅游！">
+      <span class="input-group-btn">
+        <button class="btn btn-success" type="button" onclick="per2Submit();">发送！</button>
+      </span>
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-6 -->
+</div><!-- /.row -->
+</form>
+</body>

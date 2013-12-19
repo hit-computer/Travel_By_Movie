@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn">
+<head>
+<meta charset="utf-8">
+		<link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.2/css/bootstrap.css">
+
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.2/css/bootstrap-theme.css">
+		<link rel="stylesheet" href="http://files.cnblogs.com/rubylouvre/bootstrap.css"/> 
+        <script src="http://files.cnblogs.com/rubylouvre/jquery1.83.js" > </script>
+        <script src="http://files.cnblogs.com/rubylouvre/bootstrap-transition.js"></script>
+        <script src="http://files.cnblogs.com/rubylouvre/bootstrap-modal.js"></script>
+        <script src="http://files.cnblogs.com/rubylouvre/bootstrap-button.js"></script>
+
+		<script>
+			function perSubmit() {
+				var d;
+				$.post('{:U('Movie/delmovie',array('id'=>$list[0]['id']))}', d, function (result) 
+				{
+					if(result.status==1)
+					{
+						alert("删除成功！！");
+						document.getElementById('index').click();
+						//window.location.href='{:U('Index')}';
+					}
+					else
+					{
+						alert("删除失败！！");
+						document.getElementById('index').click();
+						//window.location.href='{:U('Index')}';
+					}
+				}, 'json');
+			};
+		</script>
+</head>
+
+<body>
+<a id="index" target="top" href="{:U('Map/index')}"></a>
+<div class="page-header" style="width:100%;">
+  <h1>&nbsp;&nbsp;<span class="glyphicon glyphicon-facetime-video"></span> {$list[0]['name']} <small>标签： {$list[0]['tg']}</small></h1>
+	  &nbsp;&nbsp;<button type="button" class="btn btn-danger" onclick="perSubmit();">
+	  <span class="glyphicon glyphicon-trash"></span> 删除该电影！
+	  </button>
+	  &nbsp;&nbsp;<span class="label label-info">贡献者：{$list[0]['owname']}</span>
+</div>
+<div class="alert alert-success" style="width:100%;">
+  <p>{$list[0]['content']}</p>
+</div>
+</body>
